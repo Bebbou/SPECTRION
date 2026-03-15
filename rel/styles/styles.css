@@ -200,3 +200,74 @@
             color: var(--text-dim);
             font-size: 0.8rem;
         }
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablettes et petits écrans (992px et moins) */
+@media (max-width: 992px) {
+    .main-grid {
+        grid-template-columns: repeat(2, 1fr); /* On passe à 2 colonnes au lieu de 4 */
+        grid-template-rows: auto; /* On laisse la hauteur s'adapter au contenu */
+    }
+
+    .card-large, .card-medium {
+        grid-column: span 2; /* Les grandes cartes prennent toute la largeur */
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr; /* Le footer passe sur 2 colonnes */
+    }
+}
+
+/* Mobiles (600px et moins) */
+@media (max-width: 600px) {
+    :root {
+        --header-height: 70px; /* On réduit un peu la taille du header */
+    }
+
+    /* Header : On cache la nav pour éviter l'encombrement */
+    nav {
+        display: none; 
+    }
+
+    .header-container {
+        justify-content: space-between;
+    }
+
+    .studio-logo {
+        font-size: 1.2rem; /* Logo plus petit */
+    }
+
+    /* Grille : Tout sur une seule colonne */
+    .main-grid {
+        grid-template-columns: 1fr;
+        gap: 16px; /* Espace réduit entre les cartes */
+        padding: 0 10px;
+    }
+
+    .card, .card-large, .card-medium {
+        grid-column: span 1;
+        height: 280px; /* Hauteur fixe pour que ce soit scannable */
+        padding: 20px;
+    }
+
+    .card h2 {
+        font-size: 1.5rem !important; /* On force une taille de texte lisible */
+    }
+
+    /* Footer : Tout en une colonne */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-logo-section p {
+        margin: 0 auto;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
