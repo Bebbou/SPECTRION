@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+       :root {
+            --bg-body: #1a1c1a;       /* Noir bleuté profond */
+            --bg-card: #2d3e33;       /* Noir bleuté moderne */
+            --accent-red: #5e2b2b;   /* Limin Cyan */
+            --accent-green: #2a4435;   /* Limin Mint */
+            --text-main: #d9d7cc;
+            --text-dim: #a8a69d;
+            --header-height: 80px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            padding-top: var(--header-height);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER STICKY --- */
+        header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: rgba(10, 12, 18, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .studio-logo {
+            font-family: "Rubik";
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--text-main); /* Le beige crème */
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover { color: var(--accent-red); }
+
+        .header-cta {
+            background: rgba(94, 43, 43, 0.2);
+            color: var(--text-main);
+            border: 1px solid var(--accent-red);
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .header-cta:hover {
+            background: var(--accent-red);
+            color: white;
+        }
+        /* --- CONTENU PRINCIPAL --- */
+        main { flex: 1; padding: 60px 20px; }
+
+        .main-grid {
+            display: grid;
+            max-width: 1200px;
+            margin: 0 auto;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 320px);
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 28px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            cursor: pointer;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: var(--accent-cyan); }
+        .card-large { grid-column: span 2; grid-row: span 2; }
+        .card-medium { grid-column: span 2; }
+
+        .tag {
+            position: absolute;
+            top: 25px; left: 25px;
+            background: var(--accent-red);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .bg-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; opacity: 0.35;
+        }
+
+        .card h2, .card p { z-index: 2; position: relative; }
+
+        /* --- FOOTER CLASSIQUE RE-AJOUTÉ --- */
+        footer {
+            background-color: #05070a;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 80px 20px 40px 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo-section h3 {
+            font-family: "Rubik", sans-serif;
+            font-weight: 700;
+            color: var(--accent-mint);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .footer-logo-section p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        .footer-column h4 {
+            color: var(--text-main);
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 12px; }
+        .footer-column ul li a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .footer-column ul li a:hover { color: var(--accent-cyan); padding-left: 5px; }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 60px auto 0 auto;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
